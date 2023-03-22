@@ -1,0 +1,142 @@
+body {
+  font-family: "Nunito", sans-serif;
+  background: #f6f9ff;
+}
+
+a {
+  color: #45975c;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #717ff5;
+  text-decoration: none;
+}
+
+li a{
+    color: #012970;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nunito", sans-serif;
+}
+
+.container .pagetitle {
+  margin-bottom: 10px;
+  margin-top: 100px;
+}
+
+.container .pagetitle h1 {
+  font-size: 24px;
+  margin-bottom: 0;
+  font-weight: 600;
+  color: #012970;
+}
+
+
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99999;
+  background: #4154f1;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+
+.back-to-top i {
+  font-size: 24px;
+  color: #fff;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: #6776f4;
+  color: #fff;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Bordered Tabs */
+.nav-tabs-bordered {
+  border-bottom: 2px solid #ebeef4;
+}
+
+.nav-tabs-bordered .nav-link {
+  margin-bottom: -2px;
+  border: none;
+  color: #11a70cc0;
+}
+
+.nav-tabs-bordered .nav-link:hover,
+.nav-tabs-bordered .nav-link:focus {
+  color: #18d622;
+}
+
+.nav-tabs-bordered .nav-link.active {
+  background-color: #fff;
+  color: #33f033;
+  border-bottom: 2px solid #41f16d;
+}
+
+.sidebar-nav li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebar {
+  background: #fff;
+}
+
+.sidebar-nav .nav-link {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  color: #fff;
+  transition: 0.3;
+  font-weight: 600;
+  background: #5cb85c;
+  border-radius: 4px;
+  font-family: "Nunito", sans-serif;
+}
+
+.sidebar-nav .nav-link i {
+  font-size: 16px;
+  margin-right: 7px;
+  color: #fff;
+}
+
+.sidebar-nav .nav-link:hover {
+  color: #5cb85c;
+  background: #fff;
+}
+.sidebar-nav .nav-link:hover i{
+  color: #5cb85c;
+}
+
+.sidebar-nav .nav-content {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 15px;
+  color: #175308d7;
+  font-family: "Nunito", sans-serif;
+}
+.sidebar-nav .nav-content i {
+  font-size: 16px;
+  margin-right: 7px;
+  color: #175308d7;
+}
