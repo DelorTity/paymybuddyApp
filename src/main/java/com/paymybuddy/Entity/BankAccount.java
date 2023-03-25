@@ -27,13 +27,7 @@ public class BankAccount {
     private int id;
 
     private  int userId;
-
-    private boolean active = true;
-
     private String accountNumber;
 
-    private String description;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date createdAt;
 }
