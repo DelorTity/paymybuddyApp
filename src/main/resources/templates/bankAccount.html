@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>profile</title>
 
-
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css }">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -14,12 +14,8 @@
     <nav class="navbar navbar-expand-md bg-white navbar-light  fixed-top">
         <div class="container">
             <a class="navbar-brand fw-italic" href="/index.html">
-                <span class="bg-success bg-gradient p-1 rounded-3 text-light">Pay My Buddy</span>
+                <span class="bg-gradient bg-success bi-person-fill-add p-1 rounded-3 text-light">Pay My Buddy</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav text-truncate fw-bolder">
                     <li class="nav-item">
@@ -34,149 +30,117 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">LogOut</a>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-<body style="background: #f6f9ff;">
-<div id="main" class="main">
-    <div class="container">
-        <div class="pagetitle" style=" margin-bottom: 10px; margin-top: 100px;">
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a class="text-dark text-decoration-none" href="home.html">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-dark text-decoration-none" href="profile.html">Profile</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><a class="text-success text-decoration-none" href="account.html">Account</a></li>
-                </ol>
-            </nav>
-        </div><!-- End Page Title -->
-
-        <div class="row">
-            <div class="col-xl-3 bg-white ">
-                <div id="sidebar">
-                    <div class="card-body pt-4 pr-3 d-flex flex-column align-items-center">
-                        <ul class = "list-inline" id="sidebar-nav">
-                            <li class="">
-                                <a class="text-decoration-none text-secondary" href="profile.html">
-                                    <i class="bi bi-person-fill-add"></i>
-                                    <span> My profil</span>
-                                </a>
-                            </li>
-                            <li class="pt-3">
-                                <a class="btn btn-success" href="account.html">
-                                    <i class="bi bi-coin"></i>
-                                    <span> Bank Account</span>
-                                </a>
-                            </li>
-                        </ul>
-                     </div>
+<body style="background:ghostwhite;">
+    <section class="py-5" style="position: font 1em sans-serif;">
+      <div class="container">
+        <div id="main" class="main">
+            <div class="container">
+                <div class="pagetitle" style=" margin-bottom: 10px; margin-top: 100px;">
+                    <nav>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item" aria-current="page">profile</li>
+                            <li class="breadcrumb-item active" aria-current="page">Accounts</li>
+                          </ol>
+                    </nav>
+                </div><!-- End Page Title -->
+        <div class="row gy-4 mt-4">
+            <div class="col-3 text-center">
+                <div class="bg-white h-100 w-100 py-5">
+                    <ul class = "list-inline" id="sidebar-nav">
+                        <li class="">
+                            <a class="text-decoration-none text-secondary" href="profile.html">
+                                <i class="bi bi-list"></i>
+                                <span> My profil</span>
+                            </a>
+                        </li>
+                        <li class="pt-3">
+                            <a class="btn btn-success" href="">
+                                <i class="bi bi-phone"></i>
+                                <span> check my account </span>
+                            </a>
+                        </li>
+                        <li class="pt-3">
+                            <a class="btn btn-success" href="bankAccount.html">
+                                <i class="bi bi-phone"></i>
+                                <span> Bank Account</span>
+                            </a>
+                        </li>
+                        <li class="pt-3">
+                            <a class="btn btn-success" href="">
+                                <i class="bi bi-phone"></i>
+                                <span> change password</span><input type="text" name="accounts"></input>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="col-xl-9">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row mt-4 mb-4">
-                            <h4 class="text-success">Bank Accounts</h4>
-                        </div>
-
-                        <div class="card">
-                            <div  class="card-body">
-                                <div class="row mt-2 mb-2">
-                                    <h5 class="text-dark">Add Bank Account</h5>
-                                </div>
-
-                                <div th:if="${saved}" class="mx-auto align items-center row alert alert-success alert-dismissible fade show" role="alert">
-                                    <span th:text="${saved}"></span>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-
-                                <div th:if="${message}" class="mx-auto row alert alert-danger alert-dismissible fade show" role="alert">
-                                    <span th:text="${message}"></span>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-
-                                <form class="row g-3" th:action="@{/bankAccount/add}" method="POST" th:object="${bankAccount}"
-                                      enctype="multipart/form-data">
-                                    <div class="col-md-5">
-                                        <input th:field="*{description}" type="text" class="form-control" placeholder="Description" required>
-                                        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"  class="text-danger"></span>
-                                    </div>
-                                    <div class="col-md-5" >
-                                        <input th:field="*{accountNumber}" type="text" class="form-control" placeholder="Account Number" required>
-                                        <span th:if="${#fields.hasErrors('accountNumber')}" th:errors="*{accountNumber}"  class="text-danger"></span>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <button class="float-end btn btn-success" type="submit">Save</button>
-                                    </div>
-                                </form>
+            <form action="bankAccount" method="POST">
+              <div class="col-3">
+                <div class="bg-white h-75 w-95 py-3">
+                    <table class="table table-bordered value" style="line-height:normal" aria-colspan="d-md-inline">
+                        <thead style=" font-family:Georgia, 'Times New Roman', Times, serif, sans-serif;font-size:18px;">
+                            <tr>
+                                <th scope="col">select</th>
+                                <th scope="col">list of account</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody aria-multiselectable="true" aria-checked="mixed">
+                            <tr>
+                                <td><input type="checkbox" name="select"></td>
+                                <td><input type="text" name="accounts"></input></td>
+                                <td> <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button> </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="select"></td>
+                                <td><input type="text" name="accounts"></input></td>
+                                <td> <button type="button" class="btn btn-success"><i class="far fa-trash-alt"></i></button> </td>
+                            </tr>
+                            <tr>
+                                <li class="nav-item">
+                                    <a class="nav-link bi bi-arrow-up-short" href="">add account</a>
+                                </li>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+              </div>
+            </form>
+                <div class="col-4">
+                    <form class="row" th:action="@{/account/add}" method="POST" th:object="${account}">
+                        <div class="row">
+                                <label for="bankAccount" class="form-label">bankAccount</label>
+                            <div class="col-md-8 bg-white">
+                                <input th:field="*{account}" type="text" class="form-control" placeholder="enter bankAccount" required>
+                                <span th:if="${#fields.hasErrors('account)}" th:errors="*{account}"  class="text-danger"></span>
+                            </div>
+                            <div class="col-md-2">
+                                <a class="afin" href="add.html"> <button type="submit" class="btn btn-success">
+                                    add
+                                </button> </a>
                             </div>
                         </div>
-
-                        <table class="mt-4 table table-hover">
-                            <thead style=" font-family:Nunito, sans-serif;font-size:18px;">
-                            <tr>
-                                <th >Description </th>
-                                <th scope="col">Account Number</th>
-                                <th scope="col">Status</th>
-                                <th scope="col"><span class="float-end">Action</span></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="bankAccount : ${bankAccounts}">
-                                <td th:text="${bankAccount.description}"></td>
-                                <td th:text="${bankAccount.accountNumber}"></td>
-                                <td>
-                                    <span th:if="${bankAccount.active == true}">Active</span>
-                                    <span th:unless="${bankAccount.active == true}">Inactive</span>
-                                </td>
-                                <td>
-                                    <a th:if="${bankAccount.active == true}"
-                                       th:href="@{/disable/{id}(id=${bankAccount.id})}"
-                                       class="text-decoration-none badge rounded-pill bg-danger float-end">Disable</a>
-                                    <a th:unless="${bankAccount.active == true}"
-                                       th:href="@{/disable/{id}(id=${bankAccount.id})}"
-                                       class="text-decoration-none badge rounded-pill bg-success float-end">Enable</a>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                        <div class="Page navigation example" th:if = "${totalPages > 1}" >
-                            <ul class="pagination pagination-sm">
-                                <li class="page-item">
-                                    <a th:if="${currentPage - 1 != 0}" th:href="@{'/bankAccount?pageNumber=' + ${currentPage - 1}}" class="page-link text-success">Previous</a>
-                                    <span class="page-link text-success" th:unless="${currentPage - 1 != 0}">Previous</span>
-                                </li>
-                                <li th:each="i: ${#numbers.sequence(1, totalPages)}" class="page-item">
-                                    <a th:if="${currentPage != i}" th:href="@{'/bankAccount?pageNumber=' +   ${i}}" class="page-link text-success" href="#">[[${i}]]</a>
-                                    <a th:unless="${currentPage != i}" class="page-link text-dark" href="#">[[${i}]]</a>
-                                </li>
-                                <li class="page-item mr-2">
-                                    <a th:if="${currentPage < totalPages}" th:href="@{'/bankAccount?pageNumber=' + ${currentPage + 1}}" class="page-link text-success">Next</a>
-                                    <span class="page-link text-success" th:unless="${currentPage < totalPages}">Next</span>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link text-success" th:if="${currentPage < totalPages}" th:href="@{'/bankAccount?pageNumber=' + ${totalPages}}">Last</a>
-                                    <span class="page-link text-success" th:unless="${currentPage < totalPages}">Last</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    </form> 
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        <div class="col-3 back-to-top font-size">
+            <button class="nav-link">
+                <a class="nav-link" href="index.html">LogOut</a>
+            </button>
+        </div>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous">
-</script>
+    <link rel="stylesheet" href="/path/to/cdn/bootstrap.min.css" />
+    <script src="/path/to/cdn/jquery.min.js"></script>
+    <script src="/path/to/cdn/bootstrap.min.js"></script>
+    <script src="confirmbutton.js"></script>
 
-</body>
+</body> 
 </html>

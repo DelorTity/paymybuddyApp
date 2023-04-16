@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `contacts` (
 --
 -- Constraints for dumped tables
 --
-INSERT INTO `textbook` (`id`, `users_id`, 'payement_id') VALUES
+INSERT INTO `contacts` (`id`, `users_id`, 'payement_id') VALUES
 
 (1,),
 (5,),
@@ -96,8 +96,8 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 --
 
 INSERT INTO `accounts` (`account_number`) VALUES
-('01009005299'),
-('01051005075');
+('01009005299565195'),
+('0105100507565195');
 
 
 --
@@ -150,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `contacts` (
 --
 -- Constraints for dumped tables
 --
-INSERT INTO `textbook` (`id`, `users_id`, 'payement_id') VALUES
+INSERT INTO `contacts` (`id`, `users_id`, 'payement_id') VALUES
 
 (1,),
 (5,),

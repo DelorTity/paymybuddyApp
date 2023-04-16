@@ -8,7 +8,7 @@
 		<version>2.7.9-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.liticia</groupId>
+	<groupId>com.paymybuudy</groupId>
 	<artifactId>paymybuddy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>paymybuddy</name>

@@ -1,76 +1,21 @@
 package com.paymybuddy.Controller;
 
-import com.paymybuddy.Dto.BankAccountCreate;
 import com.paymybuddy.Entity.BankAccount;
-import com.paymybuddy.Exceptions.BankAccountAlreadyExist;
 import com.paymybuddy.Service.BankAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.validation.Valid;
-import java.util.List;
 
 @Controller
 public class BankAccountController {
 
     @Autowired
     private BankAccountService bankAccountService;
-    private BankAccountCreate bankAccountCreate;
 
-    @GetMapping("/bankAccount")//http://localhost:8080/bankAccount?pageNo=1
-    public String getBankAccount(
-            @RequestParam("pageNumber") int pageNumber,
-            Model model
-    ) {
-        BankAccountCreate bankAccount = new BankAccountCreate();
-        model.addAttribute("bankAccount", bankAccount);
-        return findPaginated(pageNumber, model);
-    }
+    @RequestMapping("/")
+    public String bankAccount(){
 
-    private String findPaginated(@RequestParam("pageNumber") int pageNumber,
-            Model model
-    ) {
-
-        int pageSize = 5;
-        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
-
-        Page<BankAccount> page = bankAccountService.findPaginated(pageable);
-        List<BankAccount> bankAccounts = page.getContent();
-
-        model.addAttribute("currentPage", pageNumber);
-        model.addAttribute("totalPages", page.getTotalPages());
-        model.addAttribute("totalItems", page.getTotalElements());
-        model.addAttribute("bankAccounts", bankAccounts);
         return "bankAccount";
-    }
-
-    @PostMapping("/bankAccount/add")
-    public String postBankAccount(@Valid @ModelAttribute("bankAccount") BankAccountCreate bankAccountCreate,
-                                  BindingResult bindingResult,
-                                  Model model,
-                                  RedirectAttributes redirectAttributes) {
-        if (bindingResult.hasErrors()) {
-            return findPaginated(1, model);
-
-        }
-        try {
-            bankAccountService.save(bankAccountCreate);
-            redirectAttributes.addFlashAttribute("saved", "The bankAccount is save!");
-
-        } catch (BankAccountAlreadyExist e) {
-            redirectAttributes.addFlashAttribute("message", "Sorry, a bank account with the account number already exist");
-            model.addAttribute("bankAccounts", bankAccountService.getAll());
-
-            return "redirect:/bankAccount?pageNumber=1";
-        }
-
-        return "redirect:/bankAccount?pageNumber=1";
     }
 }

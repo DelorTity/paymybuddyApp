@@ -19,14 +19,12 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "bankaccount")
+@Table(name = "accounts")
 public class BankAccount {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
-    private  int userId;
     private String accountNumber;
 
 
