@@ -1,18 +1,13 @@
-package com.paymybuddy.Entity;
+package com.delor.paymybuddy.entity;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import java.util.Date;
-import java.util.List;
+
 
 @Data
 @Entity
@@ -25,6 +20,7 @@ public class BankAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(name = "account_number")
     private String accountNumber;
 
 

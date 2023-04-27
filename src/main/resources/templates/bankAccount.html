@@ -82,7 +82,7 @@
             </div>
             <form action="bankAccount" method="POST">
               <div class="col-3">
-                <div class="bg-white h-75 w-95 py-3">
+                  <div class="bg-white h-75 w-95 py-3">
                     <table class="table table-bordered value" style="line-height:normal" aria-colspan="d-md-inline">
                         <thead style=" font-family:Georgia, 'Times New Roman', Times, serif, sans-serif;font-size:18px;">
                             <tr>
@@ -92,27 +92,24 @@
                             </tr>
                         </thead>
                         <tbody aria-multiselectable="true" aria-checked="mixed">
+                        <th:block th:each = "bankAccount : ${bankAccountList}">
                             <tr>
                                 <td><input type="checkbox" name="select"></td>
-                                <td><input type="text" name="accounts"></input></td>
+                                <td>[[${bankAccount.accounts}]]</td>
                                 <td> <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button> </td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="select"></td>
-                                <td><input type="text" name="accounts"></input></td>
-                                <td> <button type="button" class="btn btn-success"><i class="far fa-trash-alt"></i></button> </td>
                             </tr>
                             <tr>
                                 <li class="nav-item">
                                     <a class="nav-link bi bi-arrow-up-short" href="">add account</a>
                                 </li>
                             </tr>
+                        </th:block>
                         </tbody>
                     </table>
                 </div>
               </div>
             </form>
-                <div class="col-4">
+               <!-- <div class="col-4">
                     <form class="row" th:action="@{/account/add}" method="POST" th:object="${account}">
                         <div class="row">
                                 <label for="bankAccount" class="form-label">bankAccount</label>
@@ -121,13 +118,13 @@
                                 <span th:if="${#fields.hasErrors('account)}" th:errors="*{account}"  class="text-danger"></span>
                             </div>
                             <div class="col-md-2">
-                                <a class="afin" href="add.html"> <button type="submit" class="btn btn-success">
+                                <a class="afin" href="newAccount.html"> <button type="submit" class="btn btn-success">
                                     add
                                 </button> </a>
                             </div>
                         </div>
                     </form> 
-                </div>
+                --></div>
             </div>
         </div>
         <div class="col-3 back-to-top font-size">
@@ -135,6 +132,7 @@
                 <a class="nav-link" href="index.html">LogOut</a>
             </button>
         </div>
+      </div>
     </section>
 
     <link rel="stylesheet" href="/path/to/cdn/bootstrap.min.css" />

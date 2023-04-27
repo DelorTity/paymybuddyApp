@@ -1,7 +1,7 @@
-package com.paymybuddy.Service;
+package com.delor.paymybuddy.service;
 
-import com.paymybuddy.Entity.BankAccount;
-import com.paymybuddy.Repository.BankAccountRepository;
+import com.delor.paymybuddy.entity.BankAccount;
+import com.delor.paymybuddy.repository.BankAccountRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +16,11 @@ public class BankAccountServiceImpl implements BankAccountService {
     }
         @Override
         public List<BankAccount> getAll() {
-            return bankAccountRepository.findAll();
+            return (List<BankAccount>) bankAccountRepository.findAll();
         }
+
+    @Override
+    public BankAccount save(BankAccount account) {
+        return bankAccountRepository.save(account);
+    }
 }
